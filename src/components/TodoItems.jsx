@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { deleteTodo, updateStatus } from '../redux/action';
+import {  useDispatch, useSelector } from 'react-redux';
+import { deleteTodo, updateStatus } from '../redux/Todo/action';
 import {Link} from 'react-router-dom'
 
 export const TodoItems = () => {
 
     const [history, setHistory] = useState([]);
-    const todoGlobalState = useSelector((state) => state.todo);
+    const todoGlobalState = useSelector((state) => state.todo.todo);
     const dispatch = useDispatch();
     const handleRemove = (data) => {
         dispatch(deleteTodo(data));

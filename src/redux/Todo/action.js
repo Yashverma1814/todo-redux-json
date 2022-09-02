@@ -1,4 +1,4 @@
-import { ADD_TODO,DELETE_TODO,UPDATE_STATUS } from "./actionTypes";
+import { ADD_TODO, DELETE_TODO, UPDATE_STATUS } from "./actionTypes"
 
 export const addTodo = (data) =>{
     return {

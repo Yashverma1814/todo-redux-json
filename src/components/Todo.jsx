@@ -1,16 +1,18 @@
 import React from 'react'
 import { useState } from 'react'
+import { useDispatch,useSelector } from 'react-redux'
+import { Navigate } from 'react-router-dom'
 import {v4 as uuid} from 'uuid'
-import { useDispatch } from 'react-redux'
-import { addTodo } from '../redux/action'
+import { addTodo } from '../redux/Todo/action'
 import { TodoItems } from './TodoItems'
-import { useEffect } from 'react'
 
 export const Todo = () => {
 
     const [title,setTitle]  = useState('');
     const dispatch = useDispatch();
-
+    const localToken = localStorage.getItem('token');
+    console.log(localToken)
+    const token = useSelector((state)=>state.auth.token);
     const handleAdd = () =>{
         const payload = {
             title,
@@ -30,6 +32,9 @@ export const Todo = () => {
         }).then(()=>{            
             setTitle('')
         })
+    }
+    if(token===''&&localToken===null){
+        return <Navigate to={'/login'} />
     }
 
   return (

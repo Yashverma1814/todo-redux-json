@@ -1,10 +1,10 @@
-import { ADD_TODO,DELETE_TODO,UPDATE_STATUS } from "./actionTypes"
+import { ADD_TODO, DELETE_TODO, UPDATE_STATUS } from "./actionTypes";
 
 const initState = {
     todo:[]
 }
 
-export const reducer = (state=initState,action) => {
+export const Todoreducer = (state=initState,action) => {
     switch(action.type){
         case ADD_TODO:
             return{
